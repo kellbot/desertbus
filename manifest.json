@@ -1,0 +1,39 @@
+{
+    "manifest_version": 1,
+    "name": "Desert Bus for Zwift",
+    "description": "Play the world's worst game...  and Zwift!",
+    "author": "Kelly Maguire",
+    "website_url": "https://kellbot.com",
+    "version": "0.0.1",
+    "web_root": "pages",
+    "windows": [{
+        "file": "pages/game.html",
+        "id": "desert-bus",
+        "name": "Desert Bus",
+        "description": "Desert Bus for Zwift",
+        "always_visible": false,
+        "overlay": true,
+        "frame": false,
+        "default_bounds": {
+            "width": 640,
+            "height": 480,
+            "x": 100,
+            "y": -100
+        }
+    },
+    {
+        "file": "pages/game-settings.html",
+        "id": "desert-bus-settings",
+        "name": "Desert Bus Settings",
+        "description": "Desert Bus for Zwift Settings",
+        "always_visible": false,
+        "overlay": true,
+        "frame": true,
+        "default_bounds": {
+            "width": 0.5,
+            "height": 500,
+            "x": 100,
+            "y": -100
+        }
+    }]
+}

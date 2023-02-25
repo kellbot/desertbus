@@ -1,0 +1,86 @@
+#bus {
+    width: 640px;
+    height: 480px;
+    background: url(./images/desertbus.png) 0 0;
+
+}
+
+#odometer {
+    position: absolute;
+    left: 363px;
+    top: 353px;
+
+}
+
+.digit {
+    width: 10px;
+    height: 18px;
+    float: left;
+}
+
+.digit:last-child {
+    margin-left: 3px;
+}
+
+.black {
+    background-image: url(./images/desertbus.png);
+    background-position-x: 0;
+    background-position-y: -460px;
+
+}
+.white {
+    background-image: url(./images/desertbus.png);
+    background-position-x:  -12px;
+    background-position-y: -460px;
+
+}
+
+#speedometer {
+    position: absolute;
+    top: 352px;
+    left: 188px;
+    width: 64px;
+    height: 64px;
+}
+#needle {
+    height: 64px;
+    width: 64px; 
+    background-position-y: -640px;
+    background-image: url(./images/desertbus.png);
+}
+.spd-0 {    
+    background-position-x: 0px;
+}
+.spd-15 {
+    background-position-x: -64px;
+}
+.spd-30 {
+    background-position-x: -128px;
+}
+.spd-45 {
+    background-position-x: -192px;
+}
+.spd-60 {
+    background-position-x: -254px;
+}
+.spd-75 {
+    background-position-x: -320px;
+}
+.spd-90 {
+    background-position-x: -384px;
+}
+#steering-wheel {
+    background-image: url('./images/steering.png');
+    background-position-x: 0;
+    width: 192px;
+    height: 130px;
+    position: absolute;
+    top: 320px;
+    left: 38px;
+    animation: steer 2.5s steps(4) infinite alternate;
+}
+@keyframes steer {
+    100% {background-position-x: -768px;}
+ 
+    
+}
