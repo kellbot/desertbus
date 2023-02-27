@@ -84,3 +84,35 @@
  
     
 }
+#driver-name {
+    width: 260px;
+    height: 30px;
+    position: absolute;
+    top: 50px;
+    left:79px;
+}
+.nameletter {
+    background-image: url('./images/desertbus.png');
+    background-position-y: -530px;
+    background-position-x: -137px;
+    width: 16px;
+    height:14px;
+    float: left;
+}
+
+#tree {
+    width: 32px;
+    height: 48px;
+    background-image: url('./images/desertbus.png');
+    background-position-y: -560px;
+    background-position-x: -112px;
+    position: absolute;
+    top: 80px;
+    left: 439px;
+    animation: spin 1s steps(6) infinite alternate;
+}
+@keyframes spin {
+    0% { background-position-x: -112px; }
+
+    100% { background-position-x: -304px ; }
+  }

@@ -24,7 +24,7 @@ function getDigit(number, n, fromLeft) {
 //takes km per hour
 function setSpeedo(kmph){
     let mph = kmph / 1.609;
-    console.log(mph);
+  
     const needle = document.querySelector('#needle');
     let needleAngle;
     if (mph > 39) {
@@ -56,6 +56,40 @@ function setSpeedo(kmph){
     }
     needle.className = `spd-${needleAngle}`;
     
+}
+
+function setTreeSpin(duration) {
+    const tree = document.querySelector('#tree');
+    tree.style.animationDuration = duration;
+
+}
+
+function setDriverName(name){
+    name = name.toLowerCase();
+    let letterWidth = 16;
+    let namePlate = document.querySelector('#driver-name');
+    let nameWidth = name.length * letterWidth;
+    const styles = window.getComputedStyle(namePlate);
+    const left = parseInt(styles.getPropertyValue('left'));
+    const width = parseInt(styles.getPropertyValue('width'));
+
+    namePlate.style.left = left + width/2 - nameWidth/2 + 'px';
+
+    for (var i = 0; i < name.length; i++) {
+       
+        let letterId;
+        if (name.charCodeAt(i) == 32){
+            letterId = 0;
+        } else {
+           letterId = name.charCodeAt(i) - 96;
+        } 
+
+        let letter = document.createElement('div');
+        letter.classList = 'nameletter';
+        letter.style.backgroundPositionX = (-128 - (letterId-1) * letterWidth) + 'px';
+
+        namePlate.appendChild(letter);
+    }
 }
 
 function setOdo(meters) {
@@ -124,15 +158,18 @@ export async function main() {
     common.subscribe('athlete/watching', watching => {
         if (watching.athleteId !== athleteId) { //new rider
             athleteId = watching.athleteId;
-            console.log("New athlete")
             startDistance = watching.state.distance;
-            odoDistance = 1;
+            setDriverName(watching.athlete.fLast.substring(0,16));
+            console.log(watching);
         }
         
         odoDistance = watching.state.distance - startDistance;
 
         setOdo(odoDistance);
         setSpeedo(watching.state.speed);
+
+        let treeDuration = (20 / watching.state.cadence) + 's';
+        setTreeSpin(treeDuration);
     });
 
 
